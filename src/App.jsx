@@ -57,6 +57,7 @@ export default class App extends Component {
     const deleted = newTodo.filter((todo) => todo.id !== id);
     this.setState({
       todo: deleted,
+      filter: deleted,
     });
   };
 
@@ -99,7 +100,6 @@ export default class App extends Component {
   };
 
   filterNotComplete = () => {
-    console.log("filter not complete");
     const newTodo = this.state.todo;
     const notCompleted = newTodo.filter(
       (complete) => complete.completed === false
@@ -134,7 +134,7 @@ export default class App extends Component {
           </ul>
 
           <Switch>
-            <Route path="/about">
+            <Route path="/about/:ss?">
               <About />
             </Route>
             <Route path="/detail/:id?">
